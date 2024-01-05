@@ -5,9 +5,6 @@ math: true
 toc: false
 ---
 
-# How to solve the MDP?
-In the last post we discussed about Value,policy and Q functions and find their optimal forms. But we never discussed how to find them for a MDP. We will go over some of the methods now.
-
 ## Dynamic Programming
 These are the classical algorithms used to calculate the value and policy functions. These are rarely used in real life problems are they require a perfect model of the MDP, which happens rarely. But these are important theoretically and beome basis for many of the practical algorithms.
 
