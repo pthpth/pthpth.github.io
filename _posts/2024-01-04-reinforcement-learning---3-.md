@@ -45,4 +45,22 @@ $$\pi'(s) = \arg \max \limits_{a} q_{\pi}(s,a) $$
 
 
 $$\pi'(s) = \arg \max \limits_{a} \sum\limits_{s',r}{p(s',r|s,a)[r + \gamma v_{\pi}(s')]}$$
+
 This is called Policy Improvement. After repeated process of this we will converge to the optimal policy.
+
+### Policy Iteration
+The process of iteratively policy evaluation and policy improvement is called policy iteration.
+
+$$\pi _0 \rightarrow v_{\pi_{0}} \rightarrow \pi _{1} \rightarrow \rightarrow v_{\pi_{1}} \cdots \rightarrow \pi _{*} \rightarrow v_{*}$$
+
+#### Pseudocode for policy iteration
+![policy iteration](/assets/images/policyit.png)
+
+### Value Iteration
+If we look at policy iteration, policy evaluation step of it is computationaly expensive as it does multiples sweeps of each state. One way to reduce this is do only one update of each state. This doesnt affect the convergence of the the process.
+
+$$v_{k+1}(s) = \max\limits_{a}{\sum\limits_{s',r}{p(s',r|s,a)[r+\gamma v_{k}(s')]}}$$
+
+![value iteration](/assets/images/valueit.png)
+
+In the next post we will discuss methods to solve MDP when we dont have complete information about the models, i.e we dont have the dynamics functions available to us.
