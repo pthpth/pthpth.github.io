@@ -6,14 +6,14 @@ toc: false
 ---
 
 ## Dynamic Programming
-These are the classical algorithms used to calculate the value and policy functions. These are rarely used in real life problems are they require a perfect model of the MDP, which happens rarely. But these are important theoretically and beome basis for many of the practical algorithms.
+These are the classical algorithms used to calculate the value and policy functions. These are rarely used in real life problems are they require a perfect model of the MDP, which happens rarely. But these are important theoretically and become basis for many of the practical algorithms.
 
 ### Policy Evaluation (Prediction)
 First we need to find a method to compute state-value functions for a arbitary policy $\pi$. This is called policy evaluation i.e calculating value functions from a policy.
 
 $$v_{\pi}(s) = \sum\limits_{a} {\pi(a|s)} \sum\limits_{s',r}{p(s',r|s,a)[r + \gamma v_{\pi}(s')]}$$
 
-If we have complete knowledge about the dynamics of the MDP. We can easily solve the equations and calculate the state-value function for each state. The process is solving a system of $\|S\|$ simaltenous linear equations. The time complexity of solving this is very high $O(n^3)$ hence we need some iterative methods to solve the same.
+If we have complete knowledge about the dynamics of the MDP. We can easily solve the equations and calculate the state-value function for each state. The process is solving a system of $\|S\|$ simalteneous linear equations. The time complexity of solving this is very high $O(n^3)$ hence we need some iterative methods to solve the same.
 
 As a starting point lets assume an arbitary (only thing to keep in mind is to keep terminal state values 0) value function $v_0$. We use the bellman equation for state-value function as an update rule.
 
@@ -23,8 +23,8 @@ $$v_{k+1}(s) = \sum\limits_{a} {\pi(a|s)} \sum\limits_{s',r}{p(s',r|s,a)[r + \ga
 
 This algorithm is called iterative policy evaluation.
 
-As discussed before state-value function is a metric to measure how good a policy in comparison to another, policy evalution does that exactly.
-Now the obvious step would be to find a better policy from state-value function.Thats what we are gonna talk about.
+As discussed before state-value function is a metric to measure how good a policy in comparison to another, policy evaluation does that exactly.
+Now the obvious step would be to find a better policy from state-value function.That's what we are gonna talk about.
 
 #### Pseudocode for Policy Evaluation
 ![pseudocode](/assets/images/pseudo.png)
@@ -54,10 +54,10 @@ $$\pi _0 \rightarrow v_{\pi_{0}} \rightarrow \pi _{1} \rightarrow \rightarrow v_
 ![policy iteration](/assets/images/policyit.png)
 
 ### Value Iteration
-If we look at policy iteration, policy evaluation step of it is computationaly expensive as it does multiples sweeps of each state. One way to reduce this is do only one update of each state. This doesnt affect the convergence of the the process.
+If we look at policy iteration, policy evaluation step of it is computationaly expensive as it does multiples sweeps of each state. One way to reduce this is do only one update of each state. This doesn't affect the convergence of the the process.
 
 $$v_{k+1}(s) = \max\limits_{a}{\sum\limits_{s',r}{p(s',r|s,a)[r+\gamma v_{k}(s')]}}$$
 
 ![value iteration](/assets/images/valueit.png)
 
-In the next post we will discuss methods to solve MDP when we dont have complete information about the models, i.e we dont have the dynamics functions available to us.
+In the next post we will discuss methods to solve MDP when we don't have complete information about the models, i.e we don't have the dynamics functions available to us.
